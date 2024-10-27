@@ -27,14 +27,19 @@ public class TrainerDatabase {
         return new Trainer(splitted[0], splitted[1], splitted[2], splitted[3], splitted[4]);
     }
 
-    private void readFromFile() throws FileNotFoundException {
-        File file = new File(filename);
-        Scanner scan = new Scanner(file);
-        while (scan.hasNextLine()) {
-            String line = scan.nextLine();
-            records.add(createRecordFrom(line));
+    private void readFromFile() {
+        try {
+            File file = new File(filename);
+            Scanner scan = new Scanner(file);
+            while (scan.hasNextLine()) {
+                String line = scan.nextLine();
+                records.add(createRecordFrom(line));
+            }
+            scan.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Trainers data not found!");
+            return;
         }
-        scan.close();
     }
 
     private int searchTrainer(String key) {
@@ -79,15 +84,11 @@ public class TrainerDatabase {
     }
 
     public void saveToFile() throws IOException {
-        try {
             FileWriter writer = new FileWriter(filename, false);
             for (Trainer trainer : records) {
                 writer.write(trainer.lineRepresentation() + "\n");
             }
+            System.out.println("Changes Saved");
             writer.close();
-        } catch (IOException e) {
-            System.out.println("File Not Found");
-        }
-
     }
 }

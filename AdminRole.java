@@ -1,5 +1,6 @@
 package lab4;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -8,6 +9,7 @@ public class AdminRole {
     private TrainerDatabase database;
 
     public AdminRole() {
+        this.database=new TrainerDatabase("Trainer.txt");
     }
 
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber) 
