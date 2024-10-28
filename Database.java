@@ -7,6 +7,18 @@ abstract class Database {
     private ArrayList<Object> records = new ArrayList<>();
     private String filename;
 
+     public Database(String filename) {
+        this.filename = filename;
+    }
+
+    public ArrayList<Object> getRecords() {
+        return records;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+    
     abstract public void readFromFile();
     
     abstract public Object createRecordFrom(String line);
