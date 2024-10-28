@@ -7,8 +7,8 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class TrainerDatabase extends Database<Trainer>{
-    
+public class TrainerDatabase extends Database<Trainer> {
+
     public TrainerDatabase(String filename) throws FileNotFoundException {
         super(filename);
         readFromFile();
@@ -46,12 +46,14 @@ public class TrainerDatabase extends Database<Trainer>{
     }
 
     @Override
-    public boolean contains(String key) {
+    public boolean contains(String key
+    ) {
         return searchTrainer(key) != -1;
     }
 
     @Override
-    public Trainer getRecord(String key) {
+    public Trainer getRecord(String key
+    ) {
         if (searchTrainer(key) != -1) {
             return getRecords().get(searchTrainer(key));
         } else {
@@ -60,7 +62,8 @@ public class TrainerDatabase extends Database<Trainer>{
     }
 
     @Override
-    public void insertRecord(Trainer record) {
+    public void insertRecord(Trainer record
+    ) {
         if (searchTrainer(record.getSearchKey()) == -1) {
             getRecords().add(record);
             System.out.println("Trainer added!");
@@ -70,7 +73,8 @@ public class TrainerDatabase extends Database<Trainer>{
     }
 
     @Override
-    public void deleteRecord(String key) {
+    public void deleteRecord(String key
+    ) {
         if (searchTrainer(key) != -1) {
             getRecords().remove(getRecords().get(searchTrainer(key)));
             System.out.println("Trainer removed!");
@@ -82,15 +86,16 @@ public class TrainerDatabase extends Database<Trainer>{
     @Override
     public void saveToFile() throws IOException {
         FileWriter writer = new FileWriter(getFilename(), false);
-            for (Trainer trainer : getRecords()) {
-                writer.write(trainer.lineRepresentation() + "\n");
-            }
-            System.out.println("Changes Saved");
-            writer.close();
+        for (Trainer trainer : getRecords()) {
+            writer.write(trainer.lineRepresentation() + "\n");
+        }
+        System.out.println("Changes Saved");
+        writer.close();
     }
 
     @Override
-    int searchTrainer(String key) {
+    int searchTrainer(String key
+    ) {
         for (int i = 0; i < getRecords().size(); i++) {
             if (getRecords().get(i).getSearchKey().equals(key)) {
                 return i;

@@ -8,7 +8,7 @@ public class AdminRole {
 
     private TrainerDatabase database;
 
-    public AdminRole() {
+    public AdminRole() throws FileNotFoundException {
         this.database=new TrainerDatabase("Trainer.txt");
     }
 
@@ -18,7 +18,7 @@ public class AdminRole {
         database.insertRecord(trainer);
     }
     
-    public ArrayList getListOfTrainers()
+    public ArrayList<Trainer> getListOfTrainers()
     {
         return database.returnAllRecords();
     }
