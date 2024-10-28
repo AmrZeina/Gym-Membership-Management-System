@@ -24,13 +24,13 @@ abstract class Database<T> {
     
     abstract public T createRecordFrom(String line);
 
-    abstract public ArrayList<Trainer> returnAllRecords();
+    abstract public ArrayList<T> returnAllRecords();
 
     abstract public boolean contains(String key);
     
     abstract public T getRecord(String key);
     
-    abstract public void insertRecord(Trainer record);
+    abstract public void insertRecord(T record);
     
     abstract public void deleteRecord(String key);
     
