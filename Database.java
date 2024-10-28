@@ -1,17 +1,18 @@
 package lab4;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-abstract class Database {
+abstract class Database<T> {
 
-    private ArrayList<Object> records = new ArrayList<>();
+    private ArrayList<T> records = new ArrayList<>();
     private String filename;
 
-     public Database(String filename) {
+    public Database(String filename) {
         this.filename = filename;
     }
 
-    public ArrayList<Object> getRecords() {
+    public ArrayList<T> getRecords() {
         return records;
     }
 
@@ -21,19 +22,19 @@ abstract class Database {
     
     abstract public void readFromFile();
     
-    abstract public Object createRecordFrom(String line);
+    abstract public T createRecordFrom(String line);
 
-    abstract public ArrayList<Object> returnAllRecords();
+    abstract public ArrayList<Trainer> returnAllRecords();
 
     abstract public boolean contains(String key);
     
-    abstract public Object getRecord(String key);
+    abstract public T getRecord(String key);
     
-    abstract public void insertRecord(Object record);
+    abstract public void insertRecord(Trainer record);
     
     abstract public void deleteRecord(String key);
     
-    abstract public void saveToFile();
+    abstract public void saveToFile() throws IOException;
     
     abstract int searchTrainer(String key);
     
