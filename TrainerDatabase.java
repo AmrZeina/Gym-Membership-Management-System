@@ -48,14 +48,14 @@ public class TrainerDatabase extends Database<Trainer> {
     @Override
     public boolean contains(String key
     ) {
-        return searchTrainer(key) != -1;
+        return searchToGetIndex(key) != -1;
     }
 
     @Override
     public Trainer getRecord(String key
     ) {
-        if (searchTrainer(key) != -1) {
-            return getRecords().get(searchTrainer(key));
+        if (searchToGetIndex(key) != -1) {
+            return getRecords().get(searchToGetIndex(key));
         } else {
             return null;
         }
@@ -64,7 +64,7 @@ public class TrainerDatabase extends Database<Trainer> {
     @Override
     public void insertRecord(Trainer record
     ) {
-        if (searchTrainer(record.getSearchKey()) == -1) {
+        if (searchToGetIndex(record.getSearchKey()) == -1) {
             getRecords().add(record);
             System.out.println("Trainer added!");
         } else {
@@ -73,10 +73,9 @@ public class TrainerDatabase extends Database<Trainer> {
     }
 
     @Override
-    public void deleteRecord(String key
-    ) {
-        if (searchTrainer(key) != -1) {
-            getRecords().remove(getRecords().get(searchTrainer(key)));
+    public void deleteRecord(String key) {
+        if (searchToGetIndex(key) != -1) {
+            getRecords().remove(getRecords().get(searchToGetIndex(key)));
             System.out.println("Trainer removed!");
         } else {
             System.out.println("Trainer is not on the system!");
@@ -94,7 +93,7 @@ public class TrainerDatabase extends Database<Trainer> {
     }
 
     @Override
-    int searchTrainer(String key
+    int searchToGetIndex(String key
     ) {
         for (int i = 0; i < getRecords().size(); i++) {
             if (getRecords().get(i).getSearchKey().equals(key)) {

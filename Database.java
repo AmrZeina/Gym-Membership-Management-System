@@ -36,6 +36,6 @@ abstract class Database<T> {
     
     abstract public void saveToFile() throws IOException;
     
-    abstract int searchTrainer(String key);
+    abstract int searchToGetIndex(String key);
     
 }
