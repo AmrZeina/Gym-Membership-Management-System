@@ -9,21 +9,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 
-/**
- *
- * @author amrze
- */
-public class ClassDatabase {
-     private ArrayList<Class> records=new ArrayList<>();
-    private String filename;
 
+public class ClassDatabase extends Database<Class> {
+    
     public ClassDatabase(String filename) {
-        this.filename = filename;
+        super(filename);
     }
     
+    
+     @Override
     public void readFromFile() {
         
         Class class1;
@@ -54,6 +50,7 @@ public class ClassDatabase {
 
     }
 
+     @Override
     public Class createRecordFrom(String line) {
 
         String[] temp = line.split(",");
@@ -61,21 +58,25 @@ public class ClassDatabase {
         return class1;
 
     }
+     @Override
     public ArrayList<Class> returnAllRecords() {
         return records;
     }
+     @Override
     public boolean contains(String key)
     {
-        return searchForClass(key)!=-1;
+        return searchToGetIndex(key)!=-1;
     }
 
+     @Override
     public Class getRecord(String key) {
-        return (searchForClass(key) != -1) ? records.get(searchForClass(key)) : null;
+        return (searchToGetIndex(key) != -1) ? records.get(searchToGetIndex(key)) : null;
 
     }
 
+     @Override
     public void insertRecord(Class record) {
-        if (searchForClass(record.getSearchKey()) != -1) {
+        if (searchToGetIndex(record.getSearchKey()) != -1) {
             System.out.println("This class already exist");
         } else {
             records.add(record);
@@ -84,17 +85,19 @@ public class ClassDatabase {
 
     }
 
+     @Override
     public void deleteRecord(String key) {
 
-        if (searchForClass(key) == -1) {
+        if (searchToGetIndex(key) == -1) {
             System.out.println("This class does not exist already");
         } else {
-            records.remove(searchForClass(key));
+            records.remove(searchToGetIndex(key));
             saveToFile();
         }
 
     }
 
+     @Override
     public void saveToFile() {
         try {
 
@@ -110,7 +113,8 @@ public class ClassDatabase {
 
     }
 
-    private int searchForClass(String key) {
+     @Override
+     public int searchToGetIndex(String key) {
         for (int i = 0; i < records.size(); i++) {
             if (key.equals(records.get(i).getSearchKey())) {
 
@@ -122,5 +126,6 @@ public class ClassDatabase {
         return -1;
     }
 
+    
     
 }

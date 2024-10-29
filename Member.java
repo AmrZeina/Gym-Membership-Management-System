@@ -1,27 +1,24 @@
-
 package labb4;
 
+public class Member extends Person {
 
-
-public class Member {
-    private String memberID, name, membershipType, email, phoneNumber,status;
+    private String membershipType;
+    private String status;
 
     public Member(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
-        this.memberID = memberID;
-        this.name = name;
+        super(name, memberID, email, phoneNumber);
         this.membershipType = membershipType;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
         this.status = status;
     }
-    
-    public String lineRepresentation () 
-    {
-        return memberID+","+name+","+membershipType+","+email+","+phoneNumber+","+status;
+
+    @Override
+    public String lineRepresentation() {
+        return getId() + "," + getName() + "," + membershipType + "," + getEmail() + "," + getPhoneNumber() + "," + status;
     }
-    public String getSearchKey () 
-    {
-        return memberID;
+
+    @Override
+    public String getSearchKey() {
+        return getId();
     }
-    
+
 }

@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class MemberDatabase {
+public class MemberDatabase extends Database<Member> {
 
-    private  ArrayList<Member> records = new ArrayList<>();
-    private String filename;
-
+    
     public MemberDatabase(String filename) {
-        this.filename = filename;
+        super(filename);
+        
     }
 
+    @Override
     public void readFromFile() {
         Member member;
 
@@ -47,6 +47,7 @@ public class MemberDatabase {
 
     }
 
+    @Override
     public Member createRecordFrom(String line) {
 
         String[] temp = line.split(",");
@@ -54,17 +55,24 @@ public class MemberDatabase {
         return member;
 
     }
+    @Override
     public ArrayList<Member> returnAllRecords() {
         return records;
     }
+    @Override
+    public boolean contains(String key) {
+        return searchToGetIndex(key) != -1;
+    }
 
+    @Override
     public Member getRecord(String key) {
-        return (searchForMember(key) != -1) ? records.get(searchForMember(key)) : null;
+        return (searchToGetIndex(key) != -1) ? records.get(searchToGetIndex(key)) : null;
 
     }
 
+    @Override
     public void insertRecord(Member record) {
-        if (searchForMember(record.getSearchKey()) != -1) {
+        if (searchToGetIndex(record.getSearchKey()) != -1) {
             System.out.println("This member already exist");
         } else {
             records.add(record);
@@ -73,25 +81,27 @@ public class MemberDatabase {
 
     }
 
+    @Override
     public void deleteRecord(String key) {
 
-        if (searchForMember(key) == -1) {
+        if (searchToGetIndex(key) == -1) {
             System.out.println("This member does not exist already");
         } else {
-            records.remove(searchForMember(key));
+            records.remove(searchToGetIndex(key));
             saveToFile();
         }
 
     }
 
+    @Override
     public void saveToFile() {
         try {
 
-            FileWriter writer = new FileWriter(filename, false);
-            for (Member record : records) {
-                writer.write(record.lineRepresentation() + "\n");
+            try (FileWriter writer = new FileWriter(filename, false)) {
+                for (Member record : records) {
+                    writer.write(record.lineRepresentation() + "\n");
+                }
             }
-            writer.close();
 
         } catch (IOException exc) {
             System.out.println("file not found");
@@ -99,9 +109,10 @@ public class MemberDatabase {
 
     }
 
-    private int searchForMember(String key) {
+    @Override
+    public int searchToGetIndex(String key) {
         for (int i = 0; i < records.size(); i++) {
-            if (key == records.get(i).getSearchKey()) {
+            if (getRecords().get(i).getSearchKey().equals(key)) {
 
                 return i;
 
@@ -110,5 +121,9 @@ public class MemberDatabase {
         }
         return -1;
     }
+
+    
+
+    
 
 }
