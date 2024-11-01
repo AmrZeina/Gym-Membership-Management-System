@@ -9,7 +9,7 @@ public class AdminRole {
     private TrainerDatabase database;
 
     public AdminRole() throws FileNotFoundException {
-        this.database=new TrainerDatabase("Trainer.txt");
+        this.database=new TrainerDatabase("Trainers.txt");
     }
 
     public void addTrainer(String trainerId, String name, String email, String specialty, String phoneNumber) 

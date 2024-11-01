@@ -1,24 +1,32 @@
-package labb4;
+package lab4;
 
-public class Member extends Person {
+public class Member implements common {
 
     private String membershipType;
     private String status;
+    private String memberID;
+    private String name;
+    private String email;
+    private String phoneNumber;
 
-    public Member(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
-        super(name, memberID, email, phoneNumber);
+    public Member(String membershipType, String status, String memberID, String name, String email, String phoneNumber) {
         this.membershipType = membershipType;
         this.status = status;
+        this.memberID = memberID;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
+    
 
     @Override
     public String lineRepresentation() {
-        return getId() + "," + getName() + "," + membershipType + "," + getEmail() + "," + getPhoneNumber() + "," + status;
+        return memberID + "," + name + "," + membershipType + "," + email + "," + phoneNumber + "," + status;
     }
 
     @Override
     public String getSearchKey() {
-        return getId();
+        return memberID;
     }
 
 }

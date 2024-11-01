@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package labb4;
+package lab4;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author amrze
- */
-public class MemberClassRegistration {
+public class MemberClassRegistration implements common{
     private String memberID, classID,status;
     private LocalDate registrationDate;
 
@@ -34,14 +26,23 @@ public class MemberClassRegistration {
     {
         return registrationDate;
     }
+    @Override
     public String getSearchKey ()
     {
         return memberID+classID;
     }
+    @Override
     public String lineRepresentation ()
     {
         return memberID+","+classID+","+registrationDate+","+status;
     }
-  
+    public String getRegistrationStatus()
+    {
+        return status;
+    }
+    public void setRegistrationStatus(String status)
+    {
+        this.status=status;
+    }
         
 }

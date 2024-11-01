@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package labb4;
+package lab4;
 
 
-public class Class {
+public class Class implements common {
     private String classID,className,trainerID;
     private int duration,availableSeats;
 
@@ -30,11 +26,13 @@ public class Class {
             System.out.println("Number of seats invalid!");
     }
     
+    @Override
     public String lineRepresentation () 
     {
         return classID+","+className+","+trainerID+","+duration+","+availableSeats;
     }
     
+    @Override
     public String getSearchKey () 
     {
         return classID;
