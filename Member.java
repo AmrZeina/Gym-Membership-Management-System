@@ -9,7 +9,7 @@ public class Member implements common {
     private String email;
     private String phoneNumber;
 
-    public Member(String membershipType, String status, String memberID, String name, String email, String phoneNumber) {
+    public Member( String memberID, String name, String membershipType, String email, String phoneNumber ,String status) {
         this.membershipType = membershipType;
         this.status = status;
         this.memberID = memberID;

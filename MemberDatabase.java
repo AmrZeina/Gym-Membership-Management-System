@@ -2,10 +2,8 @@ package lab4;
 
 public class MemberDatabase extends Database<Member> {
 
-    
     public MemberDatabase(String filename) {
         super(filename);
-        
     }
 
     @Override

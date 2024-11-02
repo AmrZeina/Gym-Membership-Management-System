@@ -8,7 +8,6 @@ public class MemberClassRegistrationDatabase extends Database<MemberClassRegistr
 
     public MemberClassRegistrationDatabase(String filename) throws FileNotFoundException {
         super(filename);
-        readFromFile();
     }
 
     @Override

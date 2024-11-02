@@ -14,6 +14,7 @@ abstract class Database<T extends common> {
 
     public Database(String filename) {
         this.filename = filename;
+        readFromFile();
     }
 
     public ArrayList<T> returnAllRecords() {
@@ -26,11 +27,11 @@ abstract class Database<T extends common> {
 
     public void readFromFile() {
         try {
-            File file = new File(getFilename());
+            File file = new File(filename);
             Scanner scan = new Scanner(file);
             while (scan.hasNextLine()) {
                 String line = scan.nextLine();
-                returnAllRecords().add(createRecordFrom(line));
+                records.add(createRecordFrom(line));
             }
             scan.close();
         } catch (FileNotFoundException e) {
@@ -45,7 +46,7 @@ abstract class Database<T extends common> {
 
     public T getRecord(String key) {
         if (searchToGetIndex(key) != -1) {
-            return returnAllRecords().get(searchToGetIndex(key));
+            return records.get(searchToGetIndex(key));
         } else {
             return null;
         }
@@ -53,7 +54,7 @@ abstract class Database<T extends common> {
 
     public void insertRecord(T record) {
         if (searchToGetIndex(record.getSearchKey()) == -1) {
-            returnAllRecords().add(record);
+            records.add(record);
             System.out.println("Record added!");
         } else {
             System.out.println("Record is already added on the system!");
@@ -62,7 +63,7 @@ abstract class Database<T extends common> {
 
     public void deleteRecord(String key) {
         if (searchToGetIndex(key) != -1) {
-            returnAllRecords().remove(returnAllRecords().get(searchToGetIndex(key)));
+            records.remove(records.get(searchToGetIndex(key)));
             System.out.println("Registration removed!");
         } else {
             System.out.println("Registration is not on the system!");
@@ -71,7 +72,7 @@ abstract class Database<T extends common> {
 
     public void saveToFile() throws IOException {
         FileWriter writer = new FileWriter(getFilename(), false);
-        for (T t : returnAllRecords()) {
+        for (T t : records) {
             writer.write(t.lineRepresentation() + "\n");
         }
         System.out.println("Changes Saved");
@@ -79,8 +80,8 @@ abstract class Database<T extends common> {
     }
 
     public int searchToGetIndex(String key) {
-        for (int i = 0; i < returnAllRecords().size(); i++) {
-            if (returnAllRecords().get(i).getSearchKey().equals(key)) {
+        for (int i = 0; i < records.size(); i++) {
+            if (records.get(i).getSearchKey().equals(key)) {
                 return i;
             }
         }

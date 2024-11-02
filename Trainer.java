@@ -8,7 +8,7 @@ public class Trainer implements common {
     private String email;
     private String phoneNumber;
 
-    public Trainer(String speciality, String trainerId, String name, String email, String phoneNumber) {
+    public Trainer(String trainerId, String name, String email,String speciality, String phoneNumber) {
         this.speciality = speciality;
         this.trainerId = trainerId;
         this.name = name;

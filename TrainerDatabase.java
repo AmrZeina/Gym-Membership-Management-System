@@ -6,7 +6,6 @@ public class TrainerDatabase extends Database<Trainer> {
 
     public TrainerDatabase(String filename) throws FileNotFoundException {
         super(filename);
-        readFromFile();
     }
 
     @Override

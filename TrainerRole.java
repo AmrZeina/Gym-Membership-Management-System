@@ -37,11 +37,10 @@ public class TrainerRole {
     }
 
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
-        Class targetClass = classDatabase.getRecord(classID);
-        if (targetClass != null && targetClass.getAvailableSeats() > 0) {
+        if (classDatabase.getRecord(classID)!=null && classDatabase.getRecord(classID).getAvailableSeats() > 0) {
             MemberClassRegistration registration = new MemberClassRegistration(memberID, classID, "active", registrationDate);
             registrationDatabase.insertRecord(registration);
-            targetClass.setAvailableSeats(targetClass.getAvailableSeats() - 1);
+            classDatabase.getRecord(classID).setAvailableSeats(classDatabase.getRecord(classID).getAvailableSeats() - 1);
             return true;
         }
         return false;
