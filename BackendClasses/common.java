@@ -1,4 +1,4 @@
-package lab4;
+package BackendClasses;
 
 public interface common {
     String lineRepresentation();

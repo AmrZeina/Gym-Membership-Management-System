@@ -1,9 +1,8 @@
-package lab4;
+package BackendClasses;
 
-import lab4.AdminRole;
-import lab4.TrainerRole;
-import FrontEnd.MainWindow;
-import FrontEnd.AdminLogin;
+import BackendClasses.AdminRole;
+import BackendClasses.TrainerRole;
+import FrontendClasses.MainWindow;
 
 
 import java.time.LocalDate;

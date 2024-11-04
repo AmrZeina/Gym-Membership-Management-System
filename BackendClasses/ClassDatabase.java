@@ -1,4 +1,4 @@
-package lab4;
+package BackendClasses;
 
 public class ClassDatabase extends Database<Class> {
 
