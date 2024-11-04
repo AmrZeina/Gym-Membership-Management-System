@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class TrainerRole {
 
@@ -20,7 +21,12 @@ public class TrainerRole {
 
     public void addMember(String memberID, String name, String membershipType, String email, String phoneNumber, String status) {
         Member M = new Member(memberID, name, membershipType, email, phoneNumber, status);
-        memberDatabase.insertRecord(M);
+        if (memberDatabase.insertRecord(M)) {
+            JOptionPane.showMessageDialog(null, "The member with ID= " + memberID + " has succefully added!");
+        } else {
+            JOptionPane.showMessageDialog(null, "The member with ID= " + memberID + " Already Exists!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
 
     public ArrayList<Member> getListOfMembers() {
@@ -29,7 +35,11 @@ public class TrainerRole {
 
     public void addClass(String classID, String className, String trainerID, int duration, int maxParticipants) {
         Class C = new Class(classID, className, trainerID, duration, maxParticipants);
-        classDatabase.insertRecord(C);
+        if (classDatabase.insertRecord(C)) {
+            JOptionPane.showMessageDialog(null, "The class with ID= " + classID + " has succefully added!");
+        } else {
+            JOptionPane.showMessageDialog(null, "The class with ID= " + classID + " Already Exists!", "Message", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public ArrayList<Class> getListOfClasses() {
@@ -37,27 +47,40 @@ public class TrainerRole {
     }
 
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
-        if (classDatabase.getRecord(classID)!=null && classDatabase.getRecord(classID).getAvailableSeats() > 0) {
+        if (classDatabase.getRecord(classID) != null &&classDatabase.getRecord(classID).getAvailableSeats() == 0) {
+            JOptionPane.showMessageDialog(null, "Class has no available seats", "Message", JOptionPane.ERROR_MESSAGE);
+        }
+        if (classDatabase.getRecord(classID) != null && classDatabase.getRecord(classID).getAvailableSeats() > 0) {
             MemberClassRegistration registration = new MemberClassRegistration(memberID, classID, "active", registrationDate);
             registrationDatabase.insertRecord(registration);
             classDatabase.getRecord(classID).setAvailableSeats(classDatabase.getRecord(classID).getAvailableSeats() - 1);
+            JOptionPane.showMessageDialog(null, "The member with ID= " + memberID + " has succefully registered to class= " + classID);
             return true;
         }
         return false;
     }
 
     public boolean cancelRegistration(String memberID, String classID) {
-    MemberClassRegistration registration = registrationDatabase.getRecord(memberID + classID);
-        if (registration != null && !registration.getRegistrationStatus().equals("canceled") &&
-            ChronoUnit.DAYS.between(registration.getRegistrationDate(), LocalDate.now()) <= 3) {
-            
+        MemberClassRegistration registration = registrationDatabase.getRecord(memberID + classID);
+        if (registration != null && !registration.getRegistrationStatus().equals("canceled")
+                && ChronoUnit.DAYS.between(registration.getRegistrationDate(), LocalDate.now()) <= 3) {
+
             registration.setRegistrationStatus("canceled");
+            registrationDatabase.deleteRecordsByClassID(classID);
             Class targetClass = classDatabase.getRecord(classID);
             if (targetClass != null) {
                 targetClass.setAvailableSeats(targetClass.getAvailableSeats() + 1);
             }
+            registrationDatabase.deleteRecordsByClassID(classID);
+            JOptionPane.showMessageDialog(null, "The member with ID= " + memberID + " has been unregistered from class= " + classID);
             return true;
         }
+        if (registration != null && registration.getRegistrationStatus().equals("canceled")) {
+            JOptionPane.showMessageDialog(null, "Registration is already canceled!", "Message", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Registration does not exist!");
+        }
+
         return false;
     }
 

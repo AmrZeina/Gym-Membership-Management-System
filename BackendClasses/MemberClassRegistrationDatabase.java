@@ -3,6 +3,7 @@ package BackendClasses;
 import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import javax.swing.JOptionPane;
 
 public class MemberClassRegistrationDatabase extends Database<MemberClassRegistration> {
 
@@ -21,7 +22,7 @@ public class MemberClassRegistrationDatabase extends Database<MemberClassRegistr
         try {
             date = LocalDate.parse(splitted[2]);
         } catch (DateTimeParseException e) {
-            System.out.println("Invalid Date Format!");
+            JOptionPane.showMessageDialog(null,"Invalid Date" , "Message" , JOptionPane.WARNING_MESSAGE);
             return null;
         }
         return new MemberClassRegistration(splitted[0], splitted[1], splitted[3], date);

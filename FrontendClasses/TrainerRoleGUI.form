@@ -31,20 +31,18 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="138" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="logoutButton" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
-                  <Component id="cancelRegButton" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="viewMembersButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="viewClassesButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="regMemberForClassButton" max="32767" attributes="0"/>
-                      <Component id="addClassButton" alignment="0" max="32767" attributes="0"/>
-                      <Component id="addMemberButton" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="viewRegButton" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
+              <EmptySpace pref="119" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="logoutButton" max="32767" attributes="0"/>
+                  <Component id="viewRegButton" alignment="1" max="32767" attributes="0"/>
+                  <Component id="cancelRegButton" alignment="1" max="32767" attributes="0"/>
+                  <Component id="regMemberForClassButton" alignment="1" pref="205" max="32767" attributes="0"/>
+                  <Component id="viewClassesButton" alignment="1" max="32767" attributes="0"/>
+                  <Component id="addClassButton" alignment="1" max="32767" attributes="0"/>
+                  <Component id="viewMembersButton" alignment="1" max="32767" attributes="0"/>
+                  <Component id="addMemberButton" alignment="1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,6 +95,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="View Members"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewMembersButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="addClassButton">
       <Properties>
@@ -122,6 +123,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="View Classes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewClassesButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="regMemberForClassButton">
       <Properties>
@@ -161,6 +165,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="View Registerations"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewRegButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="logoutButton">
       <Properties>

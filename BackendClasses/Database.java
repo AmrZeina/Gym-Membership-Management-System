@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 abstract class Database<T extends common> {
 
@@ -35,7 +36,6 @@ abstract class Database<T extends common> {
             }
             scan.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Data not found!");
             return;
         }
     }
@@ -52,21 +52,21 @@ abstract class Database<T extends common> {
         }
     }
 
-    public void insertRecord(T record) {
+    public boolean insertRecord(T record) {
         if (searchToGetIndex(record.getSearchKey()) == -1) {
             records.add(record);
-            System.out.println("Record added!");
+            return true;
         } else {
-            System.out.println("Record is already added on the system!");
+            return false;
         }
     }
 
-    public void deleteRecord(String key) {
+    public boolean deleteRecord(String key) {
         if (searchToGetIndex(key) != -1) {
             records.remove(records.get(searchToGetIndex(key)));
-            System.out.println("Registration removed!");
+            return true;
         } else {
-            System.out.println("Registration is not on the system!");
+            return false;
         }
     }
 
@@ -75,7 +75,6 @@ abstract class Database<T extends common> {
         for (T t : records) {
             writer.write(t.lineRepresentation() + "\n");
         }
-        System.out.println("Changes Saved");
         writer.close();
     }
 

@@ -7,7 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 
-
 public class TrainerRoleGUI extends javax.swing.JFrame {
 
     public TrainerRoleGUI() throws FileNotFoundException {
@@ -45,6 +44,11 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
         viewMembersButton.setBackground(new java.awt.Color(0, 0, 0));
         viewMembersButton.setForeground(new java.awt.Color(255, 255, 255));
         viewMembersButton.setText("View Members");
+        viewMembersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewMembersButtonActionPerformed(evt);
+            }
+        });
 
         addClassButton.setBackground(new java.awt.Color(0, 0, 0));
         addClassButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -58,6 +62,11 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
         viewClassesButton.setBackground(new java.awt.Color(0, 0, 0));
         viewClassesButton.setForeground(new java.awt.Color(255, 255, 255));
         viewClassesButton.setText("View Classes");
+        viewClassesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewClassesButtonActionPerformed(evt);
+            }
+        });
 
         regMemberForClassButton.setBackground(new java.awt.Color(0, 0, 0));
         regMemberForClassButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,6 +89,11 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
         viewRegButton.setBackground(new java.awt.Color(0, 0, 0));
         viewRegButton.setForeground(new java.awt.Color(255, 255, 255));
         viewRegButton.setText("View Registerations");
+        viewRegButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewRegButtonActionPerformed(evt);
+            }
+        });
 
         logoutButton.setBackground(new java.awt.Color(0, 0, 0));
         logoutButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -95,18 +109,17 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(viewMembersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(viewClassesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(regMemberForClassButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addClassButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addMemberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(viewRegButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(134, 134, 134))
+                .addContainerGap(119, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewRegButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cancelRegButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(regMemberForClassButton, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                    .addComponent(viewClassesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addClassButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewMembersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addMemberButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(119, 119, 119))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,12 +148,13 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMemberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMemberButtonActionPerformed
-        AddMember window=new AddMember(trainer);
+        AddMember window = new AddMember(trainer);
         window.setVisible(true);
     }//GEN-LAST:event_addMemberButtonActionPerformed
 
     private void regMemberForClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regMemberForClassButtonActionPerformed
-        // TODO add your handling code here:
+        RegMember window = new RegMember(trainer);
+        window.setVisible(true);
     }//GEN-LAST:event_regMemberForClassButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -149,21 +163,36 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(TrainerRoleGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void addClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClassButtonActionPerformed
-        AddClass window=new AddClass(trainer);
+        AddClass window = new AddClass(trainer);
         window.setVisible(true);
     }//GEN-LAST:event_addClassButtonActionPerformed
 
     private void cancelRegButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelRegButtonActionPerformed
-        CancelReg window=new CancelReg(trainer);
+        CancelReg window = new CancelReg(trainer);
         window.setVisible(true);
     }//GEN-LAST:event_cancelRegButtonActionPerformed
 
+    private void viewMembersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMembersButtonActionPerformed
+        ViewMembers window=new ViewMembers (trainer.getListOfMembers());
+        window.setVisible(true);
+    }//GEN-LAST:event_viewMembersButtonActionPerformed
+
+    private void viewClassesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewClassesButtonActionPerformed
+        ViewClasses window=new ViewClasses(trainer.getListOfClasses());
+        window.setVisible(true);
+    }//GEN-LAST:event_viewClassesButtonActionPerformed
+
+    private void viewRegButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRegButtonActionPerformed
+        ViewRegistrations window= new ViewRegistrations(trainer.getListOfRegistrations());
+        window.setVisible(true);
+    }//GEN-LAST:event_viewRegButtonActionPerformed
+
     public static void main(String args[]) {
-  
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
