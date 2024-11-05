@@ -37,7 +37,7 @@ public class ViewMembers extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Viwe Members");
+        setTitle("View Members");
 
         membersTable.setAutoCreateRowSorter(true);
         membersTable.setBackground(new java.awt.Color(204, 204, 204));

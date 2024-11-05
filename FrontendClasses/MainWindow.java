@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import BackendClasses.AdminRole;
 import BackendClasses.Trainer;
+import javax.swing.JFormattedTextField;
 
 public class MainWindow extends JFrame {
     
@@ -54,8 +55,7 @@ public class MainWindow extends JFrame {
         addTrainerButton = new javax.swing.JButton();
         viewTrainersButton = new javax.swing.JButton();
         removeTrainerButton = new javax.swing.JButton();
-        backToLogin = new javax.swing.JButton();
-        AddMemberTab = new javax.swing.JPanel();
+        AddTrainerTab = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -71,6 +71,7 @@ public class MainWindow extends JFrame {
         TableTab = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         trainersTable = new javax.swing.JTable();
+        backToSelection = new javax.swing.JButton();
         removeTrainerTab = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         getTrainerIdToRemove = new javax.swing.JTextField();
@@ -84,8 +85,9 @@ public class MainWindow extends JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         roleSelectionTab.setToolTipText("");
+        roleSelectionTab.setPreferredSize(new java.awt.Dimension(655, 350));
 
-        trainerRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        trainerRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         trainerRoleButton.setText("Trainer Role");
         trainerRoleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +95,7 @@ public class MainWindow extends JFrame {
             }
         });
 
-        adminRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        adminRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         adminRoleButton.setText("Admin Role");
         adminRoleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,20 +108,20 @@ public class MainWindow extends JFrame {
         roleSelectionTabLayout.setHorizontalGroup(
             roleSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roleSelectionTabLayout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(roleSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addGap(184, 184, 184)
+                .addGroup(roleSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         roleSelectionTabLayout.setVerticalGroup(
             roleSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roleSelectionTabLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
-                .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGap(76, 76, 76)
+                .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         TabbedPanel.addTab("tab1", roleSelectionTab);
@@ -170,28 +172,27 @@ public class MainWindow extends JFrame {
         loginTabLayout.setHorizontalGroup(
             loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginTabLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(124, 124, 124)
                 .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginTabLayout.createSequentialGroup()
+                .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(loginTabLayout.createSequentialGroup()
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                        .addComponent(backToRoleSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))
-                    .addComponent(getUsername)
+                        .addGap(54, 54, 54)
+                        .addComponent(backToRoleSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(loginTabLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(showPasswordButton))
                     .addComponent(getPassword)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginTabLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(showPasswordButton)))
-                .addContainerGap())
+                    .addComponent(getUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         loginTabLayout.setVerticalGroup(
             loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginTabLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(71, 71, 71)
                 .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(getUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -205,7 +206,7 @@ public class MainWindow extends JFrame {
                 .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginButton)
                     .addComponent(backToRoleSelection))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         TabbedPanel.addTab("tab2", loginTab);
@@ -242,46 +243,31 @@ public class MainWindow extends JFrame {
             }
         });
 
-        backToLogin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        backToLogin.setText("Back");
-        backToLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backToLoginActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout operationSelectionTabLayout = new javax.swing.GroupLayout(operationSelectionTab);
         operationSelectionTab.setLayout(operationSelectionTabLayout);
         operationSelectionTabLayout.setHorizontalGroup(
             operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(operationSelectionTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(removeTrainerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                    .addComponent(viewTrainersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addTrainerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addGap(197, 197, 197)
+                .addGroup(operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(addTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewTrainersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         operationSelectionTabLayout.setVerticalGroup(
             operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(operationSelectionTabLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
                 .addComponent(addTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(operationSelectionTabLayout.createSequentialGroup()
-                        .addComponent(removeTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(viewTrainersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, operationSelectionTabLayout.createSequentialGroup()
-                        .addComponent(backToLogin)
-                        .addContainerGap())))
+                .addGap(33, 33, 33)
+                .addComponent(removeTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(viewTrainersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         TabbedPanel.addTab("tab3", operationSelectionTab);
@@ -353,74 +339,75 @@ public class MainWindow extends JFrame {
             }
         });
 
-        javax.swing.GroupLayout AddMemberTabLayout = new javax.swing.GroupLayout(AddMemberTab);
-        AddMemberTab.setLayout(AddMemberTabLayout);
-        AddMemberTabLayout.setHorizontalGroup(
-            AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddMemberTabLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(AddMemberTabLayout.createSequentialGroup()
-                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddMemberTabLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(getTrainerID, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(AddMemberTabLayout.createSequentialGroup()
-                                .addGap(55, 55, 55)
-                                .addComponent(getTrainerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(AddMemberTabLayout.createSequentialGroup()
-                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(getTrainerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(getTrainerSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(getTrainerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(248, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddMemberTabLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+        javax.swing.GroupLayout AddTrainerTabLayout = new javax.swing.GroupLayout(AddTrainerTab);
+        AddTrainerTab.setLayout(AddTrainerTabLayout);
+        AddTrainerTabLayout.setHorizontalGroup(
+            AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddTrainerTabLayout.createSequentialGroup()
+                .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddTrainerTabLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddTrainerTabLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddTrainerTabLayout.createSequentialGroup()
+                                .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(40, 40, 40))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddTrainerTabLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(getTrainerID, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(getTrainerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(getTrainerSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(getTrainerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(getTrainerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(214, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddTrainerTabLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
                 .addComponent(backToOperationSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGap(109, 109, 109))
         );
-        AddMemberTabLayout.setVerticalGroup(
-            AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddMemberTabLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getTrainerID, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getTrainerName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getTrainerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getTrainerSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getTrainerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        AddTrainerTabLayout.setVerticalGroup(
+            AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddTrainerTabLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(getTrainerID, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddTrainerTabLayout.createSequentialGroup()
+                        .addComponent(getTrainerName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(getTrainerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(getTrainerSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(getTrainerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addGroup(AddTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                     .addComponent(backToOperationSelection))
-                .addContainerGap())
+                .addGap(62, 62, 62))
         );
 
-        TabbedPanel.addTab("tab4", AddMemberTab);
+        TabbedPanel.addTab("tab4", AddTrainerTab);
 
         trainersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -463,21 +450,33 @@ public class MainWindow extends JFrame {
         });
         jScrollPane1.setViewportView(trainersTable);
 
+        backToSelection.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        backToSelection.setText("Back");
+        backToSelection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToSelectionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout TableTabLayout = new javax.swing.GroupLayout(TableTab);
         TableTab.setLayout(TableTabLayout);
         TableTabLayout.setHorizontalGroup(
             TableTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TableTabLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGroup(TableTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backToSelection))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         TableTabLayout.setVerticalGroup(
             TableTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TableTabLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(backToSelection)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         TabbedPanel.addTab("tab5", TableTab);
@@ -511,48 +510,53 @@ public class MainWindow extends JFrame {
         removeTrainerTab.setLayout(removeTrainerTabLayout);
         removeTrainerTabLayout.setHorizontalGroup(
             removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(removeTrainerTabLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, removeTrainerTabLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(removeTrainerTabLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(getTrainerIdToRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
-                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(removeTrainerTabLayout.createSequentialGroup()
                         .addComponent(backToOperationSelection2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
+                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(removeTrainerTabLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(getTrainerIdToRemove)))
+                .addGap(134, 134, 134))
         );
         removeTrainerTabLayout.setVerticalGroup(
             removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(removeTrainerTabLayout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(130, 130, 130)
                 .addGroup(removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(getTrainerIdToRemove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
-                .addComponent(backToOperationSelection2)
-                .addGap(19, 19, 19))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getTrainerIdToRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addGroup(removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backToOperationSelection2))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         TabbedPanel.addTab("tab6", removeTrainerTab);
 
-        getContentPane().add(TabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, -40, -1, 390));
+        getContentPane().add(TabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-9, -44, 680, 440));
 
-        setSize(new java.awt.Dimension(500, 400));
+        setSize(new java.awt.Dimension(607, 400));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void trainerRoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainerRoleButtonActionPerformed
      TrainerLogin window=new TrainerLogin();
      window.setVisible(true);
+     
+     this.dispose();
     }//GEN-LAST:event_trainerRoleButtonActionPerformed
 
     private void adminRoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminRoleButtonActionPerformed
       TabbedPanel.setSelectedIndex(1);
+        setTitle("Admin Login");
+      
+      
     }//GEN-LAST:event_adminRoleButtonActionPerformed
 
     private void getUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUsernameActionPerformed
@@ -569,14 +573,19 @@ public class MainWindow extends JFrame {
         else if(getPassword.getText().equals(""))
         JOptionPane.showMessageDialog(null, "please fill out password");
         else if(getUsername.getText().contains(LoginCredentials.ADMIN_USERNAME)&&getPassword.getText().contains(LoginCredentials.ADMIN_PASSWORD))
-        TabbedPanel.setSelectedIndex(2);
+        {TabbedPanel.setSelectedIndex(2);
+            setTitle("Admin Role");
+        }
+        
         else
         JOptionPane.showMessageDialog(null, "Wrong Username or password!","Message",JOptionPane.ERROR_MESSAGE);
 
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void backToRoleSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToRoleSelectionActionPerformed
-        TabbedPanel.setSelectedIndex(0);// TODO add your handling code here:
+        TabbedPanel.setSelectedIndex(0);
+        getUsername.setText("");
+        getPassword.setText("");
     }//GEN-LAST:event_backToRoleSelectionActionPerformed
 
     private void showPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordButtonActionPerformed
@@ -588,8 +597,9 @@ public class MainWindow extends JFrame {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         try {
-            adminRole.logout(); // TODO add your handling code here:
-        } catch (IOException ex) {
+            adminRole.logout();
+            this.dispose();
+                   } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_logoutButtonActionPerformed
@@ -609,6 +619,7 @@ public class MainWindow extends JFrame {
     }
     private void viewTrainersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTrainersButtonActionPerformed
         TabbedPanel.setSelectedIndex(4);
+        setTitle("View trainers");
         loadIntoTable();
         
 
@@ -616,11 +627,8 @@ public class MainWindow extends JFrame {
 
     private void addTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTrainerButtonActionPerformed
         TabbedPanel.setSelectedIndex(3);
+        setTitle("Add Trainer");
     }//GEN-LAST:event_addTrainerButtonActionPerformed
-
-    private void backToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToLoginActionPerformed
-        TabbedPanel.setSelectedIndex(1);
-    }//GEN-LAST:event_backToLoginActionPerformed
 
     private void getTrainerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerIDActionPerformed
         // TODO add your handling code here:
@@ -650,7 +658,13 @@ public class MainWindow extends JFrame {
         else
         {
             adminRole.addTrainer(getTrainerID.getText(), getTrainerName.getText(), getTrainerEmail.getText(), getTrainerSpeciality.getText(), getTrainerPhoneNumber.getText()); // TODO add your handling code here:
-            JOptionPane.showMessageDialog(null, "The trainer with ID "+getTrainerID.getText()+"has successfully added","Message",JOptionPane.INFORMATION_MESSAGE);
+            getTrainerID.setText("");
+            getTrainerName.setText("");
+            getTrainerEmail.setText("");
+            getTrainerSpeciality.setText("");
+            getTrainerPhoneNumber.setText("");
+            TabbedPanel.setSelectedIndex(2);
+            
         }
             
         
@@ -658,10 +672,14 @@ public class MainWindow extends JFrame {
 
     private void backToOperationSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToOperationSelectionActionPerformed
         TabbedPanel.setSelectedIndex(2);
+        setTitle("Admin Role");
+        
     }//GEN-LAST:event_backToOperationSelectionActionPerformed
 
     private void backToOperationSelection2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToOperationSelection2ActionPerformed
         TabbedPanel.setSelectedIndex(2);
+        getTrainerIdToRemove.setText("");
+        setTitle("Admin Role");
     }//GEN-LAST:event_backToOperationSelection2ActionPerformed
 
     private void getTrainerIdToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerIdToRemoveActionPerformed
@@ -674,7 +692,10 @@ public class MainWindow extends JFrame {
         else
         {
         adminRole.removeTrainer(getTrainerIdToRemove.getText());
-        JOptionPane.showMessageDialog(null, "The trainer with ID "+getTrainerIdToRemove.getText()+"has been deleted","Message",JOptionPane.INFORMATION_MESSAGE);
+        setTitle("Admin Role");
+        TabbedPanel.setSelectedIndex(2);
+                
+        getTrainerIdToRemove.setText("");
         }
 
     }//GEN-LAST:event_deleteButtonActionPerformed
@@ -684,8 +705,14 @@ public class MainWindow extends JFrame {
     }//GEN-LAST:event_trainersTableAncestorAdded
 
     private void removeTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeTrainerButtonActionPerformed
-        TabbedPanel.setSelectedIndex(5);// TODO add your handling code here:
+        TabbedPanel.setSelectedIndex(5);
+        setTitle("Remove Traienr");
     }//GEN-LAST:event_removeTrainerButtonActionPerformed
+
+    private void backToSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToSelectionActionPerformed
+        TabbedPanel.setSelectedIndex(2);
+        setTitle("Admin Role");
+    }//GEN-LAST:event_backToSelectionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -729,16 +756,16 @@ public class MainWindow extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel AddMemberTab;
+    private javax.swing.JPanel AddTrainerTab;
     private javax.swing.JTabbedPane TabbedPanel;
     private javax.swing.JPanel TableTab;
     private javax.swing.JButton addButton;
     private javax.swing.JButton addTrainerButton;
     private javax.swing.JButton adminRoleButton;
-    private javax.swing.JButton backToLogin;
     private javax.swing.JButton backToOperationSelection;
     private javax.swing.JButton backToOperationSelection2;
     private javax.swing.JButton backToRoleSelection;
+    private javax.swing.JButton backToSelection;
     private javax.swing.JButton deleteButton;
     private javax.swing.JPasswordField getPassword;
     private javax.swing.JTextField getTrainerEmail;

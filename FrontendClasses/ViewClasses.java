@@ -52,7 +52,7 @@ public class ViewClasses extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Class ID", "Class Name", "Trainer ID", "Duration", "Max Participants"
+                "Class ID", "Class Name", "Trainer ID", "Duration", "Available Seats"
             }
         ));
         jScrollPane1.setViewportView(classesTable);

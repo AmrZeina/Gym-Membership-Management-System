@@ -4,7 +4,9 @@
  */
 package FrontendClasses;
 
+import BackendClasses.AdminRole;
 import BackendClasses.TrainerRole;
+import java.io.FileNotFoundException;
 import static java.lang.Integer.parseInt;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,8 +20,9 @@ public class AddClass extends javax.swing.JFrame {
     /**
      * Creates new form AddClass
      */
-    public AddClass(TrainerRole trainer) {
+    public AddClass(TrainerRole trainer) throws FileNotFoundException {
         this.trainer = trainer;
+        this.admin = new AdminRole();
         initComponents();
     }
 
@@ -205,10 +208,18 @@ public class AddClass extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "please fill out duration");
         } else if (maxParticipantsField.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "please fill out max participants number");
+        } else if (admin.index(trainerIdField.getText()) != -1) {
+
+            try {
+                trainer.addClass(IDField.getText(), nameField.getText(), trainerIdField.getText(), parseInt(durationField.getText()), parseInt(maxParticipantsField.getText()));
+                this.dispose();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "please enter a valid number for the duration and/or the max paricipants", "Message", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
-            trainer.addClass(IDField.getText(), nameField.getText(),trainerIdField.getText(), parseInt(durationField.getText()), parseInt(maxParticipantsField.getText()));
-            this.dispose();
+            JOptionPane.showMessageDialog(null, "this trainer does not exist", "Message", JOptionPane.ERROR_MESSAGE);
         }
+
 
     }//GEN-LAST:event_addButtonActionPerformed
 
@@ -243,4 +254,5 @@ public class AddClass extends javax.swing.JFrame {
     private javax.swing.JTextField trainerIdField;
     // End of variables declaration//GEN-END:variables
     private TrainerRole trainer;
+    private AdminRole admin;
 }

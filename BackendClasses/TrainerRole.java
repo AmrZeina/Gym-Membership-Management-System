@@ -47,16 +47,27 @@ public class TrainerRole {
     }
 
     public boolean registerMemberForClass(String memberID, String classID, LocalDate registrationDate) {
-        if (classDatabase.getRecord(classID) != null &&classDatabase.getRecord(classID).getAvailableSeats() == 0) {
+        if (classDatabase.getRecord(classID) != null && classDatabase.getRecord(classID).getAvailableSeats() == 0) {
             JOptionPane.showMessageDialog(null, "Class has no available seats", "Message", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
-        if (classDatabase.getRecord(classID) != null && classDatabase.getRecord(classID).getAvailableSeats() > 0) {
+        if (registrationDatabase.contains(memberID + classID)) {
+            JOptionPane.showMessageDialog(null, "This member is already registered to this class");
+            return false;
+        }
+        if (memberDatabase.contains(memberID) && classDatabase.getRecord(classID) != null && classDatabase.getRecord(classID).getAvailableSeats() > 0) {
             MemberClassRegistration registration = new MemberClassRegistration(memberID, classID, "active", registrationDate);
             registrationDatabase.insertRecord(registration);
             classDatabase.getRecord(classID).setAvailableSeats(classDatabase.getRecord(classID).getAvailableSeats() - 1);
             JOptionPane.showMessageDialog(null, "The member with ID= " + memberID + " has succefully registered to class= " + classID);
             return true;
-        }
+        }  
+        else if (!memberDatabase.contains(memberID)) {
+                JOptionPane.showMessageDialog(null, "The member with ID= " + memberID + " does not exist");
+            }
+        else if (!classDatabase.contains(classID)) {
+                JOptionPane.showMessageDialog(null, "The class with ID= " + classID + " does not exist");
+            }
         return false;
     }
 

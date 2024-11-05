@@ -98,7 +98,7 @@
                     <Column editable="true" title="Class Name" type="java.lang.Object"/>
                     <Column editable="true" title="Trainer ID" type="java.lang.Object"/>
                     <Column editable="true" title="Duration" type="java.lang.Object"/>
-                    <Column editable="true" title="Max Participants" type="java.lang.Object"/>
+                    <Column editable="true" title="Available Seats" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>

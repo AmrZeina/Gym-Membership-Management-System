@@ -167,8 +167,13 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void addClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClassButtonActionPerformed
+        try{
         AddClass window = new AddClass(trainer);
         window.setVisible(true);
+        }catch(FileNotFoundException e)
+        {
+            
+        }
     }//GEN-LAST:event_addClassButtonActionPerformed
 
     private void cancelRegButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelRegButtonActionPerformed
@@ -177,17 +182,17 @@ public class TrainerRoleGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelRegButtonActionPerformed
 
     private void viewMembersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewMembersButtonActionPerformed
-        ViewMembers window=new ViewMembers (trainer.getListOfMembers());
+        ViewMembers window = new ViewMembers(trainer.getListOfMembers());
         window.setVisible(true);
     }//GEN-LAST:event_viewMembersButtonActionPerformed
 
     private void viewClassesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewClassesButtonActionPerformed
-        ViewClasses window=new ViewClasses(trainer.getListOfClasses());
+        ViewClasses window = new ViewClasses(trainer.getListOfClasses());
         window.setVisible(true);
     }//GEN-LAST:event_viewClassesButtonActionPerformed
 
     private void viewRegButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewRegButtonActionPerformed
-        ViewRegistrations window= new ViewRegistrations(trainer.getListOfRegistrations());
+        ViewRegistrations window = new ViewRegistrations(trainer.getListOfRegistrations());
         window.setVisible(true);
     }//GEN-LAST:event_viewRegButtonActionPerformed
 

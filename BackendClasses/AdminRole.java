@@ -39,6 +39,10 @@ public class AdminRole {
         database.deleteRecord(key);
     }
     
+    public int index(String key){
+        return database.searchToGetIndex(key);
+    }
+    
     public void logout() throws IOException
     {
         database.saveToFile();
