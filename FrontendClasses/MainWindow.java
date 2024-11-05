@@ -1,21 +1,31 @@
-package FrontEnd;
+package FrontendClasses;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+import BackendClasses.Trainer;
+import java.awt.CardLayout;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import Constants.LoginCredentials;
+import Constants.FileNames;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import BackendClasses.AdminRole;
+import BackendClasses.Trainer;
 
-/**
- *
- * @author amrze
- */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends JFrame {
+    
+    private AdminRole adminRole;
 
-    /**
-     * Creates new form MainWindow
-     */
-    public MainWindow() {
+
+    public MainWindow() throws FileNotFoundException {
+   
+        adminRole=new AdminRole();
         initComponents();
+        
     }
 
     /**
@@ -27,60 +37,655 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        adminRoleButton = new javax.swing.JButton();
+        TabbedPanel = new javax.swing.JTabbedPane();
+        roleSelectionTab = new javax.swing.JPanel();
         trainerRoleButton = new javax.swing.JButton();
+        adminRoleButton = new javax.swing.JButton();
+        loginTab = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        getUsername = new javax.swing.JTextField();
+        getPassword = new javax.swing.JPasswordField();
+        loginButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        backToRoleSelection = new javax.swing.JButton();
+        showPasswordButton = new javax.swing.JCheckBox();
+        operationSelectionTab = new javax.swing.JPanel();
+        logoutButton = new javax.swing.JButton();
+        addTrainerButton = new javax.swing.JButton();
+        viewTrainersButton = new javax.swing.JButton();
+        removeTrainerButton = new javax.swing.JButton();
+        backToLogin = new javax.swing.JButton();
+        AddMemberTab = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        getTrainerID = new javax.swing.JTextField();
+        getTrainerName = new javax.swing.JTextField();
+        getTrainerEmail = new javax.swing.JTextField();
+        getTrainerSpeciality = new javax.swing.JTextField();
+        getTrainerPhoneNumber = new javax.swing.JTextField();
+        addButton = new javax.swing.JButton();
+        backToOperationSelection = new javax.swing.JButton();
+        TableTab = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        trainersTable = new javax.swing.JTable();
+        removeTrainerTab = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        getTrainerIdToRemove = new javax.swing.JTextField();
+        deleteButton = new javax.swing.JButton();
+        backToOperationSelection2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gym System");
         setBackground(new java.awt.Color(0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        adminRoleButton.setBackground(new java.awt.Color(102, 102, 102));
-        adminRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        adminRoleButton.setForeground(new java.awt.Color(255, 255, 255));
+        roleSelectionTab.setToolTipText("");
+
+        trainerRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        trainerRoleButton.setText("Trainer Role");
+        trainerRoleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trainerRoleButtonActionPerformed(evt);
+            }
+        });
+
+        adminRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         adminRoleButton.setText("Admin Role");
-        adminRoleButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         adminRoleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adminRoleButtonActionPerformed(evt);
             }
         });
 
-        trainerRoleButton.setBackground(new java.awt.Color(102, 102, 102));
-        trainerRoleButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        trainerRoleButton.setForeground(new java.awt.Color(255, 255, 255));
-        trainerRoleButton.setText("Trainer Role");
-        trainerRoleButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+        javax.swing.GroupLayout roleSelectionTabLayout = new javax.swing.GroupLayout(roleSelectionTab);
+        roleSelectionTab.setLayout(roleSelectionTabLayout);
+        roleSelectionTabLayout.setHorizontalGroup(
+            roleSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(roleSelectionTabLayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addGroup(roleSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+        roleSelectionTabLayout.setVerticalGroup(
+            roleSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roleSelectionTabLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(adminRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addComponent(trainerRoleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
 
-        pack();
+        TabbedPanel.addTab("tab1", roleSelectionTab);
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Username");
+
+        getUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getUsernameActionPerformed(evt);
+            }
+        });
+
+        getPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getPasswordActionPerformed(evt);
+            }
+        });
+
+        loginButton.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setText("Password");
+
+        backToRoleSelection.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        backToRoleSelection.setText("Back");
+        backToRoleSelection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToRoleSelectionActionPerformed(evt);
+            }
+        });
+
+        showPasswordButton.setText("ShowPassword");
+        showPasswordButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showPasswordButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout loginTabLayout = new javax.swing.GroupLayout(loginTab);
+        loginTab.setLayout(loginTabLayout);
+        loginTabLayout.setHorizontalGroup(
+            loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginTabLayout.createSequentialGroup()
+                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                        .addComponent(backToRoleSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addComponent(getUsername)
+                    .addComponent(getPassword)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginTabLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(showPasswordButton)))
+                .addContainerGap())
+        );
+        loginTabLayout.setVerticalGroup(
+            loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginTabLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(showPasswordButton)
+                .addGap(18, 18, 18)
+                .addGroup(loginTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginButton)
+                    .addComponent(backToRoleSelection))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+
+        TabbedPanel.addTab("tab2", loginTab);
+
+        logoutButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        logoutButton.setText("Log out");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+
+        addTrainerButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        addTrainerButton.setText("Add Trainer");
+        addTrainerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTrainerButtonActionPerformed(evt);
+            }
+        });
+
+        viewTrainersButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        viewTrainersButton.setText("View Trainers");
+        viewTrainersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewTrainersButtonActionPerformed(evt);
+            }
+        });
+
+        removeTrainerButton.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        removeTrainerButton.setText("Remove Trainer");
+        removeTrainerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeTrainerButtonActionPerformed(evt);
+            }
+        });
+
+        backToLogin.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backToLogin.setText("Back");
+        backToLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToLoginActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout operationSelectionTabLayout = new javax.swing.GroupLayout(operationSelectionTab);
+        operationSelectionTab.setLayout(operationSelectionTabLayout);
+        operationSelectionTabLayout.setHorizontalGroup(
+            operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(operationSelectionTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(removeTrainerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                    .addComponent(viewTrainersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(addTrainerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
+        );
+        operationSelectionTabLayout.setVerticalGroup(
+            operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(operationSelectionTabLayout.createSequentialGroup()
+                .addContainerGap(103, Short.MAX_VALUE)
+                .addComponent(addTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(operationSelectionTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(operationSelectionTabLayout.createSequentialGroup()
+                        .addComponent(removeTrainerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(viewTrainersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, operationSelectionTabLayout.createSequentialGroup()
+                        .addComponent(backToLogin)
+                        .addContainerGap())))
+        );
+
+        TabbedPanel.addTab("tab3", operationSelectionTab);
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("ID");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Email");
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Phone Number");
+        jLabel5.setToolTipText("");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Name");
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Speciality");
+
+        getTrainerID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getTrainerIDActionPerformed(evt);
+            }
+        });
+
+        getTrainerName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getTrainerNameActionPerformed(evt);
+            }
+        });
+
+        getTrainerEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getTrainerEmailActionPerformed(evt);
+            }
+        });
+
+        getTrainerSpeciality.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getTrainerSpecialityActionPerformed(evt);
+            }
+        });
+
+        getTrainerPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getTrainerPhoneNumberActionPerformed(evt);
+            }
+        });
+
+        addButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+
+        backToOperationSelection.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backToOperationSelection.setText("Back");
+        backToOperationSelection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToOperationSelectionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AddMemberTabLayout = new javax.swing.GroupLayout(AddMemberTab);
+        AddMemberTab.setLayout(AddMemberTabLayout);
+        AddMemberTabLayout.setHorizontalGroup(
+            AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddMemberTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(AddMemberTabLayout.createSequentialGroup()
+                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddMemberTabLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(getTrainerID, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AddMemberTabLayout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(getTrainerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(AddMemberTabLayout.createSequentialGroup()
+                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(getTrainerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(getTrainerSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(getTrainerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(248, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddMemberTabLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(backToOperationSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
+        );
+        AddMemberTabLayout.setVerticalGroup(
+            AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddMemberTabLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getTrainerID, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getTrainerName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getTrainerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getTrainerSpeciality, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getTrainerPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddMemberTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(backToOperationSelection))
+                .addContainerGap())
+        );
+
+        TabbedPanel.addTab("tab4", AddMemberTab);
+
+        trainersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"", null, null, null, null},
+                {"", null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Email", "Speciality", "Phone Numebr"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        trainersTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                trainersTableAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(trainersTable);
+
+        javax.swing.GroupLayout TableTabLayout = new javax.swing.GroupLayout(TableTab);
+        TableTab.setLayout(TableTabLayout);
+        TableTabLayout.setHorizontalGroup(
+            TableTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TableTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        TableTabLayout.setVerticalGroup(
+            TableTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TableTabLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        TabbedPanel.addTab("tab5", TableTab);
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jLabel8.setText("Trainer ID");
+
+        getTrainerIdToRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getTrainerIdToRemoveActionPerformed(evt);
+            }
+        });
+
+        deleteButton.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
+        backToOperationSelection2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        backToOperationSelection2.setText("Back");
+        backToOperationSelection2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToOperationSelection2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout removeTrainerTabLayout = new javax.swing.GroupLayout(removeTrainerTab);
+        removeTrainerTab.setLayout(removeTrainerTabLayout);
+        removeTrainerTabLayout.setHorizontalGroup(
+            removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(removeTrainerTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(removeTrainerTabLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(getTrainerIdToRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(removeTrainerTabLayout.createSequentialGroup()
+                        .addComponent(backToOperationSelection2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        removeTrainerTabLayout.setVerticalGroup(
+            removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(removeTrainerTabLayout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addGroup(removeTrainerTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getTrainerIdToRemove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addComponent(backToOperationSelection2)
+                .addGap(19, 19, 19))
+        );
+
+        TabbedPanel.addTab("tab6", removeTrainerTab);
+
+        getContentPane().add(TabbedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, -40, -1, 390));
+
+        setSize(new java.awt.Dimension(500, 400));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void trainerRoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trainerRoleButtonActionPerformed
+     TrainerLogin window=new TrainerLogin();
+     window.setVisible(true);
+    }//GEN-LAST:event_trainerRoleButtonActionPerformed
+
     private void adminRoleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminRoleButtonActionPerformed
-        AdminLogin adminlogin=new AdminLogin();
-        adminlogin.setVisible(true);
+      TabbedPanel.setSelectedIndex(1);
     }//GEN-LAST:event_adminRoleButtonActionPerformed
+
+    private void getUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getUsernameActionPerformed
+        
+    }//GEN-LAST:event_getUsernameActionPerformed
+
+    private void getPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getPasswordActionPerformed
+
+    }//GEN-LAST:event_getPasswordActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        if(getUsername.getText().equals(""))
+        JOptionPane.showMessageDialog(null, "please fill out username");
+        else if(getPassword.getText().equals(""))
+        JOptionPane.showMessageDialog(null, "please fill out password");
+        else if(getUsername.getText().contains(LoginCredentials.ADMIN_USERNAME)&&getPassword.getText().contains(LoginCredentials.ADMIN_PASSWORD))
+        TabbedPanel.setSelectedIndex(2);
+        else
+        JOptionPane.showMessageDialog(null, "Wrong Username or password!","Message",JOptionPane.ERROR_MESSAGE);
+
+    }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void backToRoleSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToRoleSelectionActionPerformed
+        TabbedPanel.setSelectedIndex(0);// TODO add your handling code here:
+    }//GEN-LAST:event_backToRoleSelectionActionPerformed
+
+    private void showPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordButtonActionPerformed
+        if(showPasswordButton.isSelected())
+        getPassword.setEchoChar((char)0);
+        else
+        getPassword.setEchoChar('*');
+    }//GEN-LAST:event_showPasswordButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        try {
+            adminRole.logout(); // TODO add your handling code here:
+        } catch (IOException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_logoutButtonActionPerformed
+    private void loadIntoTable()
+    {
+        ArrayList<Trainer> data= adminRole.getListOfTrainers();
+        
+        DefaultTableModel tableModel = (DefaultTableModel) trainersTable.getModel();
+            tableModel.setRowCount(0);
+            int i=0;
+            for(Trainer row :data)
+            {
+                 String[] rowData = adminRole.getListOfTrainers().get(i++).lineRepresentation().split(",");
+                 tableModel.addRow(rowData);
+                 
+            }
+    }
+    private void viewTrainersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTrainersButtonActionPerformed
+        TabbedPanel.setSelectedIndex(4);
+        loadIntoTable();
+        
+
+    }//GEN-LAST:event_viewTrainersButtonActionPerformed
+
+    private void addTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTrainerButtonActionPerformed
+        TabbedPanel.setSelectedIndex(3);
+    }//GEN-LAST:event_addTrainerButtonActionPerformed
+
+    private void backToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToLoginActionPerformed
+        TabbedPanel.setSelectedIndex(1);
+    }//GEN-LAST:event_backToLoginActionPerformed
+
+    private void getTrainerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTrainerIDActionPerformed
+
+    private void getTrainerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTrainerNameActionPerformed
+
+    private void getTrainerEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTrainerEmailActionPerformed
+
+    private void getTrainerSpecialityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerSpecialityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTrainerSpecialityActionPerformed
+
+    private void getTrainerPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerPhoneNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTrainerPhoneNumberActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+       
+        if(getTrainerName.getText().equals("")||getTrainerID.getText().equals("")||getTrainerEmail
+                .getText().equals("")||getTrainerSpeciality.getText().equals("")||getTrainerPhoneNumber.getText().equals(""))
+        JOptionPane.showMessageDialog(null, "Some Fields are Empty!","Message",JOptionPane.ERROR_MESSAGE);
+        else
+        {
+            adminRole.addTrainer(getTrainerID.getText(), getTrainerName.getText(), getTrainerEmail.getText(), getTrainerSpeciality.getText(), getTrainerPhoneNumber.getText()); // TODO add your handling code here:
+            JOptionPane.showMessageDialog(null, "The trainer with ID "+getTrainerID.getText()+"has successfully added","Message",JOptionPane.INFORMATION_MESSAGE);
+        }
+            
+        
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void backToOperationSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToOperationSelectionActionPerformed
+        TabbedPanel.setSelectedIndex(2);
+    }//GEN-LAST:event_backToOperationSelectionActionPerformed
+
+    private void backToOperationSelection2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToOperationSelection2ActionPerformed
+        TabbedPanel.setSelectedIndex(2);
+    }//GEN-LAST:event_backToOperationSelection2ActionPerformed
+
+    private void getTrainerIdToRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getTrainerIdToRemoveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getTrainerIdToRemoveActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        if(getTrainerIdToRemove.getText().equals(""))
+        JOptionPane.showMessageDialog(null, "Enter trainer ID!","Message",JOptionPane.ERROR_MESSAGE);
+        else
+        {
+        adminRole.removeTrainer(getTrainerIdToRemove.getText());
+        JOptionPane.showMessageDialog(null, "The trainer with ID "+getTrainerIdToRemove.getText()+"has been deleted","Message",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void trainersTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_trainersTableAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trainersTableAncestorAdded
+
+    private void removeTrainerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeTrainerButtonActionPerformed
+        TabbedPanel.setSelectedIndex(5);// TODO add your handling code here:
+    }//GEN-LAST:event_removeTrainerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,15 +716,58 @@ public class MainWindow extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new MainWindow().setVisible(true);
+                try {
+                    new MainWindow().setVisible(true);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AddMemberTab;
+    private javax.swing.JTabbedPane TabbedPanel;
+    private javax.swing.JPanel TableTab;
+    private javax.swing.JButton addButton;
+    private javax.swing.JButton addTrainerButton;
     private javax.swing.JButton adminRoleButton;
+    private javax.swing.JButton backToLogin;
+    private javax.swing.JButton backToOperationSelection;
+    private javax.swing.JButton backToOperationSelection2;
+    private javax.swing.JButton backToRoleSelection;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JPasswordField getPassword;
+    private javax.swing.JTextField getTrainerEmail;
+    private javax.swing.JTextField getTrainerID;
+    private javax.swing.JTextField getTrainerIdToRemove;
+    private javax.swing.JTextField getTrainerName;
+    private javax.swing.JTextField getTrainerPhoneNumber;
+    private javax.swing.JTextField getTrainerSpeciality;
+    private javax.swing.JTextField getUsername;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JPanel loginTab;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JPanel operationSelectionTab;
+    private javax.swing.JButton removeTrainerButton;
+    private javax.swing.JPanel removeTrainerTab;
+    private javax.swing.JPanel roleSelectionTab;
+    private javax.swing.JCheckBox showPasswordButton;
     private javax.swing.JButton trainerRoleButton;
+    private javax.swing.JTable trainersTable;
+    private javax.swing.JButton viewTrainersButton;
     // End of variables declaration//GEN-END:variables
+
 }
